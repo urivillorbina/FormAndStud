@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.pc.formandstud.InfoActivity">
+
+    <Button
+        android:id="@+id/checkHour1"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/btnCheck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/checkHour2"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/btnCheck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkHour1" />
+
+    <Button
+        android:id="@+id/checkHour3"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/btnCheck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkHour2" />
+
+    <Button
+        android:id="@+id/checkHour4"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/btnCheck"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkHour3" />
+
+    <TextView
+        android:id="@+id/textViewCheck1"
+        android:layout_width="210dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:hint="@string/textView"
+        app:layout_constraintEnd_toStartOf="@+id/checkHour1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewCheck2"
+        android:layout_width="210dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:hint="@string/textView"
+        app:layout_constraintEnd_toStartOf="@+id/checkHour2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCheck1" />
+
+    <TextView
+        android:id="@+id/textViewCheck3"
+        android:layout_width="210dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:hint="@string/textView"
+        app:layout_constraintEnd_toStartOf="@+id/checkHour3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCheck2" />
+
+    <TextView
+        android:id="@+id/textViewCheck4"
+        android:layout_width="210dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:hint="@string/textView"
+        app:layout_constraintEnd_toStartOf="@+id/checkHour4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCheck3" />
+
+    <Button
+        android:id="@+id/btnSaveContent"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="200dp"
+        android:text="@string/saveHours"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCheck4" />
+
+    <TextView
+        android:id="@+id/textViewResultado"
+        android:layout_width="210dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="@string/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCheck4" />
+
+</android.support.constraint.ConstraintLayout>

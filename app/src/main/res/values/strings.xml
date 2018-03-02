@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">FormAndStud</string>
+    <string name="app_info_name">Info Menu</string>
+
+    //String Activity 1:
+    <string name="editTextName">Insert name:</string>
+    <string name="editTextPhone">Insert phone number:</string>
+    <string name="btnAccept">ACCEPT</string>
+    <string name="btnClear">CLEAR</string>
+    <string name="btnInfo">CHECK IN/OUT</string>
+
+
+    //String Activity 2:
+    <string name="telHint">Telephone Number Missing...</string>
+    <string name="nameHint">Name Missing...</string>
+    <string name="textQuestion">Is it correct?</string>
+    <string name="btnYes">Yes</string>
+    <string name="btnNo">No</string>
+
+    //String Activity 3;
+    <string name="btnPop"> Show PopUp</string>
+    <string name="ok">ok</string>
+    <string name="cancel">cancel</string>
+
+    //String Info Activity
+    <string name="btnCheck">Check Hour</string>
+    <string name="textView"> - </string>
+    <string name="saveHours">Save Content</string>
+
+</resources>
