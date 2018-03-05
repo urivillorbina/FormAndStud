@@ -1,6 +1,8 @@
 package com.example.pc.formandstud;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.Toast;
+
+import com.example.pc.formandstud.baseDeDatos.ConexionSQLiteHelper;
+import com.example.pc.formandstud.utilidades.Utilidades;
 
 import java.util.concurrent.RunnableScheduledFuture;
 
@@ -26,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ConexionSQLiteHelper conn=new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
+
         editTextName = findViewById(R.id.editTextName);
         editTextPhone = findViewById(R.id.editTextPhone);
         btnAccept = findViewById(R.id.btnAccept);
@@ -36,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //registrarUsuarios();
+                registrarUsuariosSql();
                 segundaPantalla();
             }
         });
@@ -86,6 +95,45 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
+
+    }
+
+    private void registrarUsuariosSql(){
+
+        ConexionSQLiteHelper conn=new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
+        SQLiteDatabase db = conn.getWritableDatabase();
+
+        //Insert into usuario (id, nombre, telefono) values (123, 'Cristian', '663254157')
+
+        String insert = "INSERT INTO" + Utilidades.TABLA_USUARIO
+                + " ( " + Utilidades.CAMPO_ID + " , "
+                + Utilidades.CAMPO_NOMBRE + " , "
+                + Utilidades.CAMPO_TELEFONO + " ) " +
+                " VALUES ( " + editTextName.getText().toString() +  " , '"
+                + editTextName.getText().toString() + "' , '"
+                + editTextPhone.getText().toString() + "')";
+
+        db.close();
+
+    }
+
+    private void registrarUsuarios(){
+
+        //registrar usuarios lenguaje Android
+
+        ConexionSQLiteHelper conn=new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
+        SQLiteDatabase db = conn.getWritableDatabase();
+
+        ContentValues   values  = new ContentValues();
+        values.put(Utilidades.CAMPO_ID, editTextName.getText().toString());
+        values.put(Utilidades.CAMPO_NOMBRE, editTextName.getText().toString());
+        values.put(Utilidades.CAMPO_TELEFONO, editTextPhone.getText().toString());
+
+        Long idResultante = db.insert(Utilidades.TABLA_USUARIO, Utilidades.CAMPO_ID, values);
+        Long idNombre = db.insert(Utilidades.TABLA_USUARIO, Utilidades.CAMPO_NOMBRE, values);
+
+        Toast.makeText(getApplicationContext(), "Id Registro: " + idResultante , Toast.LENGTH_SHORT).show();
+        db.close();
 
     }
 

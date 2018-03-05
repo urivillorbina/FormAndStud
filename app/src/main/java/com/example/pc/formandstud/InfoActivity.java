@@ -1,8 +1,8 @@
 package com.example.pc.formandstud;
 
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,7 +11,6 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
 
 
 public class InfoActivity extends AppCompatActivity {
@@ -149,31 +148,30 @@ public class InfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                    Long total;
-                    long time1 = Time1 - Time789;
-                    long time2 = Time2 - Time789;
-                    long time3 = Time3 - Time789;
-                    long time4 = Time4 - Time789;
+                Long total;
+                long time1 = Time1 - Time789;
+                long time2 = Time2 - Time789;
+                long time3 = Time3 - Time789;
+                long time4 = Time4 - Time789;
 
-                    total = (time2 - time1) + (time4 - time3);
-                    System.out.println(total);
+                total = (time2 - time1) + (time4 - time3);
+                System.out.println(total);
 
-                    long MilliToSeconds = total / 1000;
+                long MilliToSeconds = total / 1000;
+                long hours = MilliToSeconds / 3600;
+                long minutes = (MilliToSeconds % 3600) / 60;
+                long seconds = (MilliToSeconds % 3600) % 60;
 
-                    long hours = MilliToSeconds / 3600;
-                    long minutes = (MilliToSeconds % 3600) / 60;
-                    long seconds = (MilliToSeconds % 3600) % 60;
+                System.out.println(hours);
+                System.out.println(minutes);
+                System.out.println(seconds);
 
-                    System.out.println(hours);
-                    System.out.println(minutes);
-                    System.out.println(seconds);
-
-                    Result.setText(hours + ("h:") + minutes + ("min:") + seconds + ("s"));
+                Result.setText(hours + ("h:") + minutes + ("min:") + seconds + ("s"));
 
 
-                    Toast.makeText(InfoActivity.this, "Worked Hours", Toast.LENGTH_SHORT).show();
+                Toast.makeText(InfoActivity.this, "Worked Hours", Toast.LENGTH_SHORT).show();
 
-                    saveContent.setEnabled(false);
+                saveContent.setEnabled(false);
 
             }
         });
