@@ -10,18 +10,36 @@
 
 
     <EditText
-        android:id="@+id/editTextName"
+        android:id="@+id/editTextId"
         android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginEnd="150dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:hint="@string/editTextId"
+        android:inputType="number"
+        android:maxLength="5"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="82dp"
         android:hint="@string/editTextName"
         android:inputType="text"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <EditText
         android:id="@+id/editTextPhone"
@@ -55,12 +73,27 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnClearName"
+        android:id="@+id/btnClearId"
         android:layout_width="0dp"
         android:layout_height="42dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginStart="27dp"
         android:layout_marginTop="16dp"
         android:text="@string/btnClear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/editTextName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnClearName"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="82dp"
+        android:text="@string/btnClear"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editTextName"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -68,9 +101,11 @@
         android:id="@+id/btnClearPhone"
         android:layout_width="wrap_content"
         android:layout_height="42dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginStart="27dp"
         android:layout_marginTop="25dp"
         android:text="@string/btnClear"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editTextPhone"
         app:layout_constraintTop_toBottomOf="@+id/btnClearName" />
 
@@ -79,7 +114,7 @@
         android:layout_width="wrap_content"
         android:layout_height="42dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="28dp"
         android:text="@string/btnInfo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnClearPhone" />

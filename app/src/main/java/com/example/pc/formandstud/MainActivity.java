@@ -17,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
 
     EditText editTextName;
     EditText editTextPhone;
+    EditText editTextId;
     Button btnAccept;
+    Button btnClearId;
     Button btnClearName;
     Button btnClearPhone;
     Button btnInfo;
@@ -32,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
         editTextName = findViewById(R.id.editTextName);
         editTextPhone = findViewById(R.id.editTextPhone);
+        editTextId = findViewById(R.id.editTextId);
         btnAccept = findViewById(R.id.btnAccept);
+        btnClearId = findViewById(R.id.btnClearId);
         btnClearName = findViewById(R.id.btnClearName);
         btnClearPhone = findViewById(R.id.btnClearPhone);
         btnInfo = findViewById(R.id.btnInfo);
@@ -43,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
                 //registrarUsuarios();
                 registrarUsuariosSql();
                 segundaPantalla();
+            }
+        });
+
+
+        btnClearId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clearId();
             }
         });
 
@@ -100,15 +112,17 @@ public class MainActivity extends AppCompatActivity {
         ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
 
-        //Insert into usuario (id, nombre, telefono) values (123, 'Cristian', '663254157')
-
-        String insert = "INSERT INTO" + Utilidades.TABLA_USUARIO
+        //String Insert into usuario (id, nombre, telefono) values ('ID', 'Nombre', 'Telefono')
+        String insert = "INSERT INTO " + Utilidades.TABLA_USUARIO
                 + " ( " + Utilidades.CAMPO_ID + " , "
                 + Utilidades.CAMPO_NOMBRE + " , "
                 + Utilidades.CAMPO_TELEFONO + " ) " +
-                " VALUES ( " + editTextName.getText().toString() + " , '"
+                " VALUES ( '" + editTextId.getText().toString() + "' , '"
                 + editTextName.getText().toString() + "' , '"
                 + editTextPhone.getText().toString() + "')";
+
+        //db.execSQL("INSERT INTO Usuario (id, nombre, telefono) VALUES (CAMPO_ID, 'CAMPO_NOMBRE', 'CAMPO_TELEFONO')");
+        db.execSQL(insert);
 
         db.close();
 
@@ -142,6 +156,11 @@ public class MainActivity extends AppCompatActivity {
     private void clearPhone() {
 
         editTextPhone.setText("");
+    }
+
+    private void clearId() {
+
+        editTextId.setText("");
     }
 
 

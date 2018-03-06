@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/FormAndStud.iml" filepath="$PROJECT_DIR$/FormAndStud.iml" />
       <module fileurl="file://C:\Users\oriol\OneDrive\Documents\Sourcetree\FormAndStud.iml" filepath="C:\Users\oriol\OneDrive\Documents\Sourcetree\FormAndStud.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Sourcetree.iml" filepath="$PROJECT_DIR$/Sourcetree.iml" />
+      <module fileurl="file://C:\Users\PC\Documents\FormAndStud\Sourcetree.iml" filepath="C:\Users\PC\Documents\FormAndStud\Sourcetree.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

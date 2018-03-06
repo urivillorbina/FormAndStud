@@ -3,6 +3,7 @@
     <string name="app_info_name">Info Menu</string>
 
     //String Activity 1:
+    <string name="editTextId">Insert ID:</string>
     <string name="editTextName">Insert name:</string>
     <string name="editTextPhone">Insert phone number:</string>
     <string name="btnAccept">ACCEPT</string>
@@ -26,5 +27,7 @@
     <string name="btnCheck">Check Hour</string>
     <string name="textView"> - </string>
     <string name="saveHours">Save Content</string>
+
+    <string name="totalWorkedHours"> hours + ("h:") + minutes + ("min:") + seconds + ("s") </string>
 
 </resources>
