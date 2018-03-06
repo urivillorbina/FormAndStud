@@ -3,18 +3,15 @@ package com.example.pc.formandstud;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.example.pc.formandstud.baseDeDatos.ConexionSQLiteHelper;
 import com.example.pc.formandstud.utilidades.Utilidades;
-
-import java.util.concurrent.RunnableScheduledFuture;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,14 +21,14 @@ public class MainActivity extends AppCompatActivity {
     Button btnClearName;
     Button btnClearPhone;
     Button btnInfo;
-
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ConexionSQLiteHelper conn=new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
+        ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
 
         editTextName = findViewById(R.id.editTextName);
         editTextPhone = findViewById(R.id.editTextPhone);
@@ -83,11 +80,11 @@ public class MainActivity extends AppCompatActivity {
         String textName = editTextName.getText().toString();
         String textPhone = editTextPhone.getText().toString();
 
-        if (textName.matches("") & textPhone.matches("")){
+        if (textName.matches("") & textPhone.matches("")) {
 
             Toast.makeText(MainActivity.this, "Empty Text Fields", Toast.LENGTH_SHORT).show();
 
-        }else {
+        } else {
 
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             intent.putExtra("TextName", textName);
@@ -98,9 +95,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void registrarUsuariosSql(){
+    private void registrarUsuariosSql() {
 
-        ConexionSQLiteHelper conn=new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
+        ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
 
         //Insert into usuario (id, nombre, telefono) values (123, 'Cristian', '663254157')
@@ -109,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
                 + " ( " + Utilidades.CAMPO_ID + " , "
                 + Utilidades.CAMPO_NOMBRE + " , "
                 + Utilidades.CAMPO_TELEFONO + " ) " +
-                " VALUES ( " + editTextName.getText().toString() +  " , '"
+                " VALUES ( " + editTextName.getText().toString() + " , '"
                 + editTextName.getText().toString() + "' , '"
                 + editTextPhone.getText().toString() + "')";
 
@@ -117,14 +114,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void registrarUsuarios(){
+    private void registrarUsuarios() {
 
         //registrar usuarios lenguaje Android
 
-        ConexionSQLiteHelper conn=new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
+        ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
 
-        ContentValues   values  = new ContentValues();
+        ContentValues values = new ContentValues();
         values.put(Utilidades.CAMPO_ID, editTextName.getText().toString());
         values.put(Utilidades.CAMPO_NOMBRE, editTextName.getText().toString());
         values.put(Utilidades.CAMPO_TELEFONO, editTextPhone.getText().toString());
@@ -132,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         Long idResultante = db.insert(Utilidades.TABLA_USUARIO, Utilidades.CAMPO_ID, values);
         Long idNombre = db.insert(Utilidades.TABLA_USUARIO, Utilidades.CAMPO_NOMBRE, values);
 
-        Toast.makeText(getApplicationContext(), "Id Registro: " + idResultante , Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Id Registro: " + idResultante, Toast.LENGTH_SHORT).show();
         db.close();
 
     }
