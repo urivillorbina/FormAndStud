@@ -9,6 +9,8 @@
     <string name="btnAccept">ACCEPT</string>
     <string name="btnClear">CLEAR</string>
     <string name="btnInfo">CHECK IN/OUT</string>
+    <string name="btnInsertar"> Insertar en BD</string>
+    <string name="btnConsulta"> Consulta en BD</string>
 
 
     //String Activity 2:

@@ -1,6 +1,5 @@
 package com.example.pc.formandstud;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -18,34 +17,57 @@ public class MainActivity extends AppCompatActivity {
     EditText editTextName;
     EditText editTextPhone;
     EditText editTextId;
+    Button btnConsultarBd;
+    Button btnInsertarBd;
     Button btnAccept;
     Button btnClearId;
     Button btnClearName;
     Button btnClearPhone;
     Button btnInfo;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
+        //ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
 
         editTextName = findViewById(R.id.editTextName);
         editTextPhone = findViewById(R.id.editTextPhone);
         editTextId = findViewById(R.id.editTextId);
+        btnConsultarBd = findViewById(R.id.btnConsulta);
+        btnInsertarBd = findViewById(R.id.btnInsertar);
         btnAccept = findViewById(R.id.btnAccept);
         btnClearId = findViewById(R.id.btnClearId);
         btnClearName = findViewById(R.id.btnClearName);
         btnClearPhone = findViewById(R.id.btnClearPhone);
         btnInfo = findViewById(R.id.btnInfo);
 
+        btnInsertarBd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //crear condición, si hay algún campo vacio, botón inhabilitado o mostrar mensaje
+                //de rellenar todos los campos de texto
+                registrarUsuariosSql();
+                Toast.makeText(MainActivity.this, "Data Saved", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnConsultarBd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Insertar en BD
+                Toast.makeText(MainActivity.this, "Inoperative Button", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //registrarUsuarios();
-                registrarUsuariosSql();
+                //registrarUsuariosSql();
                 segundaPantalla();
             }
         });
@@ -128,9 +150,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void registrarUsuarios() {
-
-        //registrar usuarios lenguaje Android
+    //Registrar usuarios en lenguaje Android
+    /*private void registrarUsuarios() {
 
         ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
         SQLiteDatabase db = conn.getWritableDatabase();
@@ -146,21 +167,18 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Id Registro: " + idResultante, Toast.LENGTH_SHORT).show();
         db.close();
 
+    }*/
+
+    private void clearId() {
+        editTextId.setText("");
     }
 
     private void clearName() {
-
         editTextName.setText("");
     }
 
     private void clearPhone() {
-
         editTextPhone.setText("");
-    }
-
-    private void clearId() {
-
-        editTextId.setText("");
     }
 
 
