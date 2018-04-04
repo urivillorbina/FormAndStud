@@ -1,9 +1,15 @@
 package com.example.pc.formandstud;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
+import android.test.mock.MockContentProvider;
+import android.test.mock.MockContext;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +19,7 @@ import com.example.pc.formandstud.baseDeDatos.ConexionSQLiteHelper;
 import com.example.pc.formandstud.utilidades.Utilidades;
 
 public class MainActivity extends AppCompatActivity {
+
 
     EditText editTextName;
     EditText editTextPhone;
@@ -27,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -44,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         btnClearPhone = findViewById(R.id.btnClearPhone);
         btnInfo = findViewById(R.id.btnInfo);
 
+
         btnInsertarBd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,7 +67,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //Insertar en BD
-                Toast.makeText(MainActivity.this, "Inoperative Button", Toast.LENGTH_SHORT).show();
+                Intent  listview = new Intent(MainActivity.this, ListViewActivity.class);
+                startActivity(listview);
+                //Toast.makeText(MainActivity.this, "Inoperative Button", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -68,7 +78,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //registrarUsuarios();
                 //registrarUsuariosSql();
-                segundaPantalla();
+                //segundaPantalla();
+                /*private FusedLocationProviderClient mFusedLocationClient;
+                mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+                isMockLocationOn( location);*/
+
             }
         });
 
@@ -147,27 +161,26 @@ public class MainActivity extends AppCompatActivity {
         db.execSQL(insert);
 
         db.close();
-
     }
 
-    //Registrar usuarios en lenguaje Android
-    /*private void registrarUsuarios() {
 
-        ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "bd_usuarios", null, 1);
-        SQLiteDatabase db = conn.getWritableDatabase();
+    /*public static void MockLocation(Location location){
 
-        ContentValues values = new ContentValues();
-        values.put(Utilidades.CAMPO_ID, editTextName.getText().toString());
-        values.put(Utilidades.CAMPO_NOMBRE, editTextName.getText().toString());
-        values.put(Utilidades.CAMPO_TELEFONO, editTextPhone.getText().toString());
 
-        Long idResultante = db.insert(Utilidades.TABLA_USUARIO, Utilidades.CAMPO_ID, values);
-        Long idNombre = db.insert(Utilidades.TABLA_USUARIO, Utilidades.CAMPO_NOMBRE, values);
+        LocationManager locationManager = (LocationManager) location.isFromMockProvider();
 
-        Toast.makeText(getApplicationContext(), "Id Registro: " + idResultante, Toast.LENGTH_SHORT).show();
-        db.close();
+        //location = location.isFromMockProvider();
 
     }*/
+
+
+    public boolean isMockLocationOn(Location location) {
+
+        return location.isFromMockProvider();
+    }
+
+
+
 
     private void clearId() {
         editTextId.setText("");

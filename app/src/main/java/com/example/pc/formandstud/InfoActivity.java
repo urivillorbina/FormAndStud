@@ -1,13 +1,18 @@
 package com.example.pc.formandstud;
 
 
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.security.cert.LDAPCertStoreParameters;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -59,6 +64,7 @@ public class InfoActivity extends AppCompatActivity {
         saveContent.setEnabled(false);
 
 
+
         checkHour1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,6 +79,7 @@ public class InfoActivity extends AppCompatActivity {
                 Toast.makeText(InfoActivity.this, "Check in, DONE ", Toast.LENGTH_SHORT).show();
                 DisplayDateTime1.setText(new SimpleDateFormat("dd-MM-yyyy k:mm", Locale.getDefault()).format(DatosHora1));
                 checkHour1.setEnabled(false);
+
 
 
             }
